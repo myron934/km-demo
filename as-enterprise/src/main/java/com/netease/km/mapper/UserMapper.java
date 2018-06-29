@@ -22,7 +22,7 @@ public interface UserMapper {
 	})
 	public List<User> listAll();
 	
-	@Select("SELECT * FROM user where id==#{id}")
+	@Select("SELECT * FROM user where id=#{id}")
 	public User getById(int id);
 	
 	@Insert("INSERT INTO user(name) VALUES(#{name})")

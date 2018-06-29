@@ -18,6 +18,12 @@ public class UserServiceImpl implements UserService{
 	public void save(User u) {
 		userMapper.insert2(u);
 	}
+
+	@Override
+	public User getById(int id) {
+		User u=userMapper.getById(id);
+		return u;
+	}
 	
 	
 

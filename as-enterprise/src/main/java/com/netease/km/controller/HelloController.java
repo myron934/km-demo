@@ -13,20 +13,21 @@ import com.netease.km.service.UserService;
 
 @RestController
 @ControllerAutoLog
+@RequestMapping(value="/hello", produces = "application/json;charset=UTF-8")
 public class HelloController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping("/hello")
-    public String index(@RequestParam String name) {
-        return "hello "+name+"，this is first messge";
-    }
 	
 	@RequestMapping(value="/login", produces = "application/json;charset=UTF-8")
     public String login(@RequestParam(value="user_id",required=false) String userId) {
         return "{\"msg\":\"成功了\"}";
     }
-//	
+	
+	@RequestMapping(value="/get_user")
+    public User getUser(@RequestParam(value="user_id",required=false) int userId) {
+        return userService.getById(userId);
+    }
 	
 	@RequestMapping(value="/add_user", produces = "application/json;charset=UTF-8")
     public String addUser(@RequestParam(value="user_name") String name) {
