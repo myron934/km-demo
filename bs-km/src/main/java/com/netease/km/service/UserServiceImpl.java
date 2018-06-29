@@ -19,6 +19,11 @@ public class UserServiceImpl implements UserService{
 		RequestContext ctx=RequestContextHolder.getContext();
 		helloRpc.addUser(RequestContext.decode(ctx),u);
 	}
+	@Override
+	public String getById(int id) {
+		return helloRpc.getUser(id);
+	}
+	
 	
 	
 
